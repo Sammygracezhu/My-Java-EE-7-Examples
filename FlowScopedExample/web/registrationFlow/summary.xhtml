@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form prependId="false">
+        <h:commandLink disabled="true" action="registration" value=" Cust Info |"/>
+            <h:commandLink action="custAddress" value="  Address | " />
+            <h:commandLink action="summary" value="  Summary  "/>
+            
+            <h2>Your information: </h2>
+            
+                <h:panelGrid columns='2'>
+                    <h:outputLabel value="First Name:" />
+                <h:outputText value="#{orderBean.customer.firstName}"/>
+                
+                <h:outputLabel value="Last Name: "/>
+                <h:outputText value="#{orderBean.customer.lastName}"/>
+                
+                <h:outputLabel value="Birth Date: "/>
+                <h:outputText value="#{orderBean.customer.dateOfBirth}">
+                    <f:convertDateTime pattern='dd-MM-yyyy'/>
+                </h:outputText>
+                
+                <h:outputLabel value='Street: '/>
+                <h:outputText value='#{orderBean.customer.address.street}'/>
+                
+                <h:outputLabel value="Apartment: "/>
+                <h:outputText value='#{orderBean.customer.address.appartment}'/>
+                
+                <h:outputLabel value='City: '/>
+                <h:outputText value="#{orderBean.customer.address.city}"/>
+                
+                <h:outputLabel value='State: '/>
+                <h:outputText value='#{orderBean.customer.address.state}' />
+                
+                
+                <h:outputLabel value='Country: '/>
+                <h:outputText value='#{orderBean.customer.address.country}'/>
+                </h:panelGrid>    
+            <h:commandButton value='Submit' action='returnFromFlow'/>
+            </h:form>
+    </h:body>
+</html>
+
